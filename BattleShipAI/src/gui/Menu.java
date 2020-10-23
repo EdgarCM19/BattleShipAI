@@ -16,7 +16,7 @@ public class Menu extends GameObject {
 
 	@Override
 	public void initResources() {
-		menuFrame = new Frame(getImage("src\\res\\images\\logo.png"), 0, 0);
+		menuFrame = new Frame(getImage(ResPath.MENU_BG), 0, 0);
 		logo = new Frame(getImage(ResPath.LOGO), 100, 100);
 	}
 
@@ -30,8 +30,10 @@ public class Menu extends GameObject {
 	@Override
 	public void update(long arg0) {
 		if(click()) {
-			if(logo.click(getMouseX(), getMouseY()))
-				System.out.println("Holas");
+			if(logo.click(getMouseX(), getMouseY())) {
+				parent.nextGameID++;
+				finish();
+			}
 		}
 	}
 
