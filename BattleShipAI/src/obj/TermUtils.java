@@ -31,6 +31,22 @@ public class TermUtils {
 					//System.out.print(BLUE_BACKGROUND + "-");
 					System.out.print(" - ");
 					break;
+				case '^':
+					//System.out.print(BLUE_BACKGROUND + "-");
+					System.out.print(" ^ ");
+					break;
+				case 'v':
+					//System.out.print(BLUE_BACKGROUND + "-");
+					System.out.print(" v ");
+					break;
+				case '<':
+					//System.out.print(BLUE_BACKGROUND + "-");
+					System.out.print(" < ");
+					break;
+				case '>':
+					//System.out.print(BLUE_BACKGROUND + "-");
+					System.out.print(" > ");
+					break;
 				default:
 					break;
 				}

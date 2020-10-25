@@ -14,8 +14,10 @@ public class Player {
 		this.enemy = new Board();
 	}
 	
-	public void shoot(int x, int y) {
+	public boolean shoot(int x, int y) {
 		enemy.matrix[x][y] = (rival.board.confirmShoot(x, y)) ? 'x' : '-';
+		//TermUtils.printBoard(rival.board.matrix);
+		return rival.board.confirmShoot(x, y);
 	}
 	
 	

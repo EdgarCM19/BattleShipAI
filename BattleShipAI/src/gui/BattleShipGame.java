@@ -15,7 +15,7 @@ public class BattleShipGame extends GameEngine {
 		case 0:
 			return new Menu(this);
 		case 1:
-			return new Board(this);
+			return new MainGame(this);
 		default:
 			break;
 		}

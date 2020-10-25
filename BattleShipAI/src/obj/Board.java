@@ -26,6 +26,7 @@ public class Board {
 	}
 	
 	public void createRandomBoard() {
+		fillEmptyMatrix();
 		boolean control = false;
 		char [] orien = {'N', 'S', 'E', 'W'};
 		Random rnd = new Random();
@@ -46,9 +47,9 @@ public class Board {
 				}
 			}
 		}
-		for (Ship ship : ships) {
+		/*for (Ship ship : ships) {
 			System.out.println(ship);
-		}
+		}*/
 	}
 	
 	private boolean validPosition(int size, int x, int y, char o) {
@@ -87,22 +88,22 @@ public class Board {
 		switch (o) {
 		case 'N':
 			for(int i = y, a = 0; a < size; i--, a++) {
-				matrix[i][x] = '#';
+					matrix[i][x] = '#';
 			}
 			break;
 		case 'S':
 			for(int i = y, a = 0; a < size; i++, a++) {
-				matrix[i][x] = '#';
+					matrix[i][x] = '#';
 			}
 			break;
 		case 'W':
 			for(int i = x, a = 0; a < size; i--, a++) {
-				matrix[y][i] = '#';
+					matrix[y][i] = '#';
 			}
 			break;
 		case 'E':
 			for(int i = x, a = 0; a < size; i++, a++) {
-				matrix[y][i] = '#';
+					matrix[y][i] = '#';
 			}
 			break;
 		default:
@@ -149,6 +150,7 @@ public class Board {
 				for (int i = ship.sy, a = 0; a < matrix.length; i--, a++)
 					if(matrix[i][ship.sx] != 'x')
 						return;
+				System.out.println("Holas");
 				destroyed.add(ship);
 				ships.remove(ship);
 				return;
@@ -182,5 +184,15 @@ public class Board {
 
 	public void printBoard() {
 		TermUtils.printBoard(matrix);
+	}
+	
+	public boolean checkBoard() {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				if(matrix[i][j] == '#')
+					return false;
+			}
+		}
+		return true;
 	}
 }

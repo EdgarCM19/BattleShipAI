@@ -16,8 +16,8 @@ public class Menu extends GameObject {
 
 	@Override
 	public void initResources() {
-		menuFrame = new Frame(getImage(ResPath.MENU_BG), 0, 0);
-		logo = new Frame(getImage(ResPath.LOGO), 100, 100);
+		menuFrame = new Frame(getImage(ResPath.MENU_BG, false), 0, 0);
+		logo = new Frame(getImage(ResPath.LOGO), 200, 50);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class Menu extends GameObject {
 	public void update(long arg0) {
 		if(click()) {
 			if(logo.click(getMouseX(), getMouseY())) {
-				parent.nextGameID++;
+				parent.nextGameID = 1;
 				finish();
 			}
 		}
